@@ -6,16 +6,17 @@ pipeline {
         //         git url: 'https://github.com/Naz513/datree.git', branch: 'master'
         //     }
         // }
-        stage('Install Datree') {
-            steps {
-                sh 'curl https://get.datree.io | /bin/bash'
-            }
-        }
+        // stage('Install Datree') {
+        //     steps {
+        //         sh 'curl https://get.datree.io | /bin/bash'
+        //     }
+        // }
         stage('Testing for Misconfigs') {
             steps {
                 script{
                     withEnv(['DATREE_TOKEN=$DATREE_TOKEN']) {
-                        sh 'datree test *.yaml --only-k8s-files'
+                        sh 'curl https://get.datree.io | /bin/bash'
+                        sh 'datree test main.yaml'
                     }
                 }
             }
