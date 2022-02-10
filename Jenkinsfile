@@ -15,7 +15,6 @@ pipeline {
             steps {
                 script{
                     withEnv(['DATREE_TOKEN=$DATREE_TOKEN']) {
-                        sh 'curl https://get.datree.io | /bin/bash'
                         sh 'datree test main.yaml'
                     }
                 }
