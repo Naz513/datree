@@ -6,12 +6,10 @@ pipeline {
                 git url: 'https://github.com/Naz513/datree.git', branch: 'master'
             }
         }
-        stage('Integration Test') {
-            steps {
-                sh 'echo $DATREE_TOKEN'
-            }
-        }
         stage('Testing for Misconfigs') {
+            steps {
+                sh 'curl https://get.datree.io | /bin/bash'
+            }
             steps {
                 script{
                     withEnv(['DATREE_TOKEN=$DATREE_TOKEN']) {
