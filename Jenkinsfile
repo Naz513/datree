@@ -6,11 +6,6 @@ pipeline {
                 git url: 'https://github.com/Naz513/datree.git', branch: 'master'
             }
         }
-        stage('Install Datree') {
-            steps {
-                sh 'ls'
-            }
-        }
         stage('Testing for Misconfigs') {
             steps {
                 script{
